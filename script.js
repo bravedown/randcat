@@ -3,20 +3,21 @@ if (!info) info = {};
 
 $("#new-cat").on("click", newCat);
 function newCat() {
+    let id = $("#cat-name").val() !== "" ? $("#cat-name").val().trim().split(" ").join("-") : "blankcat";
     let html = 
-    `<div id="${$("#cat-name").val().trim().split(" ").join("-")}" class="row bg-light">
+    `<div id="${id}" class="row bg-light">
         <div class="col-6 col-md-8 list-group-item list-group-item-primary">
             <h2>
                 ${$("#cat-name").val()}
             </h2>
         </div>
         <div class="list-group-item list-group-item-info col-3 col-md-2">
-            <input data-cat="${$("#cat-name").val()}" class="frequency form-control" placeholder="Frequency">
+            <input data-cat="${$("#cat-name").val()}" class="frequency form-control" placeholder="Freq">
         </div>
         <div class="list-group-item list-group-item-danger col-3 col-md-2">
-            <button data-cat="${$("#cat-name").val().trim().split(" ").join("-")}" class="delete-cat btn btn-outline-danger btn-light">Delete</button>
+            <button data-cat="${id}" class="delete-cat btn btn-outline-danger btn-light">Delete</button>
         </div>
-    </div>;`
+    </div>`;
     $("#categories").append($(html));
 
 }

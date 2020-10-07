@@ -44,9 +44,6 @@ function generateCat() {
             if (!(cats[i-1] && randNum < cats[i-1][2])) chosenCat = cats[i][0]
         }
     }
-
-
-    console.log(sum);
-    console.log("rand num: " + randNum);
-    console.log(chosenCat);
+    $("#history").prepend($(`<h3 class="text-info">${$("#active-cat").text()}</h3>`));
+    $("#active-cat").text(chosenCat);    
 }
